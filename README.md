@@ -4,7 +4,7 @@
 
 This is a web application is a password generator that randomly generates a password based on the user's set criteria.
 
-![webpage screenshot](https://github.com/mtanng9/02-mtang-professional-porfolio/blob/main/assets/images/website-screenshot.png?raw=true)
+![webpage screenshot](https://github.com/mtanng9/03-javascript-password-generator/blob/main/Password-Generator-Screenshot.png)?raw=true)
 
 ## Table of Contents (Optional)
 
