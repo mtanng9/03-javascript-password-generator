@@ -13,16 +13,41 @@ function generatePassword() {
     return "You entered a value that is either less than 8 or greater than 128";
   }
 
-  var lowercase = window.prompt("Do you want lowercase letters? (yes/no)").trim();
-  var uppercase = window.prompt("Do you want uppercase letters? (yes/no)").trim();
-  var numeric = window.prompt("Do you want numbers? (yes/no)").trim();
-  var specialCharacters = window.prompt("Do you want special characters? (yes/no)").trim();
+  var lowercase = window.confirm("Do you want lowercase letters?");
+  var uppercase = window.confirm("Do you want uppercase letters?");
+  var numeric = window.confirm("Do you want numbers?");
+  var specialCharacters = window.confirm("Do you want special characters?");
   
-  if (lowercase != "yes" && uppercase != "yes" && numeric != "yes" && specialCharacters!= "yes") { 
-    return "Nothing has been entered for the character types";
+  if (!lowercase && !uppercase && !numeric && !specialCharacters) { 
+    return "Nothing has been selected for the character types";
+  } 
+
+  var lowerCaseBank = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var upperCaseBank = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  var numericBank = ["1","2","3","4","5","6","7","8","9","0"];
+  var specialBank = ["!","@","#","$","%","^","&","*","(",")"];
+
+  var password = "";
+  var characterBank = [];
+
+  if (lowercase) {
+    characterBank = characterBank.concat(lowerCaseBank);
   }
-   
-  return "test";
+  if (uppercase) {
+    characterBank = characterBank.concat(upperCaseBank);
+  }
+  if (numeric) {
+    characterBank = characterBank.concat(numericBank);
+  }
+  if (specialCharacters) {
+    characterBank = characterBank.concat(specialBank);
+  }
+
+ for (var i = 0; i < passwordLength; i++) {
+  password = password + characterBank[Math.round(Math.random() * (characterBank.length - 0) + 0)];
+ }
+
+  return password;
 }
 
 // Get references to the #generate element
